@@ -1,0 +1,2 @@
+-- Migration 030 was replaced by the schema in migration 008 to avoid duplicate anamneses table creation.
+-- The current anamneses schema is created in 008_anamneses.sql and extended by 032_alter_anamneses_template.sql.
