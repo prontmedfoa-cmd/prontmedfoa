@@ -7,9 +7,6 @@ const router =
 const authMiddleware =
     require('../middlewares/authMiddleware');
 
-const permissionMiddleware =
-    require('../middlewares/permissionMiddleware');
-
 const MedicalEvolutionController =
     require(
         '../controllers/MedicalEvolutionController'
@@ -23,10 +20,6 @@ router.post(
 
     '/',
 
-    permissionMiddleware(
-        'evolution.create'
-    ),
-
     MedicalEvolutionController.create
 
 );
@@ -35,10 +28,6 @@ router.get(
 
     '/:id',
 
-    permissionMiddleware(
-        'evolution.read'
-    ),
-
     MedicalEvolutionController.findById
 
 );
@@ -46,10 +35,6 @@ router.get(
 router.get(
 
     '/patient/:patientId',
-
-    permissionMiddleware(
-        'evolution.read'
-    ),
 
     MedicalEvolutionController.findByPatient
 

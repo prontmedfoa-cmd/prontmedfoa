@@ -7,9 +7,6 @@ const router =
 const authMiddleware =
     require('../middlewares/authMiddleware');
 
-const permissionMiddleware =
-    require('../middlewares/permissionMiddleware');
-
 const RiskClassificationRepository =
     require(
         '../repositories/RiskClassificationRepository'
@@ -20,10 +17,6 @@ router.get(
     '/',
 
     authMiddleware,
-
-    permissionMiddleware(
-        'triage.read'
-    ),
 
     async (req, res, next) => {
 
