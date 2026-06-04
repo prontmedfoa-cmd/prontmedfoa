@@ -1,0 +1,138 @@
+<%- include('../layouts/header') %>
+
+<%- include('../layouts/sidebar') %>
+
+<div class="container mt-4">
+    <div class="d-flex flex-column flex-md-row justify-content-between align-items-start gap-3 mb-4">
+        <div>
+            <h2>Detalhes da Consulta</h2>
+            <p class="text-muted">Acompanhe o atendimento médico e tenha os próximos passos sempre visíveis.</p>
+        </div>
+        <div class="d-flex gap-2">
+            <a id="editLink" class="btn btn-secondary">Editar Consulta</a>
+            <a href="/consultations" class="btn btn-outline-secondary">Voltar</a>
+        </div>
+    </div>
+
+    <div id="consultationSummary" class="card mb-4">
+        <div class="card-body">
+            <div class="text-center py-4 text-muted">Carregando consulta...</div>
+        </div>
+    </div>
+
+    <div class="row g-4">
+        <div class="col-lg-6">
+            <div class="card">
+                <div class="card-body">
+                    <h5 class="card-title">Emitir Prescrição</h5>
+                    <form id="prescriptionForm">
+                        <div class="mb-3">
+                            <label class="form-label">Orientações e notas</label>
+                            <textarea name="notes" class="form-control" rows="4" placeholder="Instruções para a prescrição" required></textarea>
+                        </div>
+                        <button class="btn btn-success" type="submit">Salvar Prescrição</button>
+                        <div id="prescriptionMessage" class="form-text text-success mt-2"></div>
+                    </form>
+                </div>
+            </div>
+        </div>
+        <div class="col-lg-6">
+            <div class="card">
+                <div class="card-body">
+                    <h5 class="card-title">Nova Evolução</h5>
+                    <form id="evolutionForm">
+                        <div class="mb-3">
+                            <label class="form-label">Tipo de evolução</label>
+                            <select name="evolution_type" class="form-control" required>
+                                <option value="observation">Observação</option>
+                                <option value="follow_up">Retorno</option>
+                                <option value="discharge">Alta</option>
+                            </select>
+                        </div>
+                        <div class="mb-3">
+                            <label class="form-label">Descrição</label>
+                            <textarea name="evolution_text" class="form-control" rows="4" placeholder="Detalhes da evolução" required></textarea>
+                        </div>
+                        <button class="btn btn-primary" type="submit">Registrar Evolução</button>
+                        <div id="evolutionMessage" class="form-text text-success mt-2"></div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="card mt-4">
+        <div class="card-body">
+            <h5 class="card-title">Evoluções do Paciente</h5>
+            <div class="table-responsive">
+                <table class="table table-striped align-middle mb-0">
+                    <thead>
+                        <tr>
+                            <th>ID</th>
+                            <th>Tipo</th>
+                            <th>Profissional</th>
+                            <th>Texto</th>
+                            <th>Data</th>
+                        </tr>
+                    </thead>
+                    <tbody id="evolutionsTable">
+                        <tr>
+                            <td colspan="5" class="text-center text-muted py-4">Selecione a consulta para carregar as evoluções.</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+
+    <div class="card mt-4">
+        <div class="card-body">
+            <h5 class="card-title">Prescrições do Paciente</h5>
+            <div class="table-responsive">
+                <table class="table table-striped align-middle mb-0">
+                    <thead>
+                        <tr>
+                            <th>ID</th>
+                            <th>Consulta</th>
+                            <th>Notas</th>
+                            <th>Data</th>
+                        </tr>
+                    </thead>
+                    <tbody id="prescriptionsTable">
+                        <tr>
+                            <td colspan="4" class="text-center text-muted py-4">Selecione a consulta para carregar as prescrições.</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+
+    <div class="card mt-4">
+        <div class="card-body">
+            <h5 class="card-title">Anexos</h5>
+            <div class="table-responsive">
+                <table class="table table-striped align-middle mb-0">
+                    <thead>
+                        <tr>
+                            <th>ID</th>
+                            <th>Arquivo</th>
+                            <th>Tipo</th>
+                            <th>Enviado por</th>
+                            <th>Data</th>
+                        </tr>
+                    </thead>
+                    <tbody id="attachmentsTable">
+                        <tr>
+                            <td colspan="5" class="text-center text-muted py-4">Selecione a consulta para carregar os anexos.</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script src="/js/consultation-detail.js"></script>
+
+<%- include('../layouts/footer') %>

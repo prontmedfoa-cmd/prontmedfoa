@@ -1,0 +1,74 @@
+<%- include('../layouts/header') %>
+
+<%- include('../layouts/sidebar') %>
+
+<div class="container mt-4">
+    <div class="d-flex flex-column flex-md-row justify-content-between align-items-start gap-3 mb-4">
+        <div>
+            <h2>Nova Anamnese</h2>
+            <p class="text-muted">Documente o histórico do paciente de forma acolhedora e estruturada.</p>
+        </div>
+    </div>
+
+    <div class="card">
+        <div class="card-body">
+            <form id="anamneseForm">
+                <div class="row g-3">
+                    <div class="col-md-6">
+                        <label class="form-label">Paciente</label>
+                        <select id="patientSelect" name="patient_id" class="form-control" required></select>
+                    </div>
+                    <div class="col-md-6">
+                        <label class="form-label">Triagem relacionada</label>
+                        <select id="triageSelect" name="triage_id" class="form-control">
+                            <option value="">Nenhuma</option>
+                        </select>
+                    </div>
+                    <div class="col-md-6">
+                        <label class="form-label">ID da Consulta ligada</label>
+                        <input name="appointment_id" type="number" class="form-control" placeholder="ID de agendamento ou consulta" />
+                    </div>
+                    <div class="col-md-6">
+                        <label class="form-label">Queixa Principal</label>
+                        <input name="chief_complaint" class="form-control" placeholder="Queixa principal" required />
+                    </div>
+                    <div class="col-12">
+                        <label class="form-label">História da doença atual</label>
+                        <textarea name="history_present_illness" class="form-control" rows="3" placeholder="Detalhes sobre a evolução dos sintomas"></textarea>
+                    </div>
+                    <div class="col-12">
+                        <label class="form-label">Histórico pessoal</label>
+                        <textarea name="personal_history" class="form-control" rows="3" placeholder="Informações sobre histórico pessoal"></textarea>
+                    </div>
+                    <div class="col-12">
+                        <label class="form-label">Histórico familiar</label>
+                        <textarea name="family_history" class="form-control" rows="3" placeholder="Informações sobre histórico familiar"></textarea>
+                    </div>
+                    <div class="col-12">
+                        <label class="form-label">Medicações</label>
+                        <textarea name="medication_history" class="form-control" rows="3" placeholder="Medicações em uso"></textarea>
+                    </div>
+                    <div class="col-12">
+                        <label class="form-label">Alergias</label>
+                        <textarea name="allergy_history" class="form-control" rows="2" placeholder="Alergias conhecidas"></textarea>
+                    </div>
+                    <div class="col-12">
+                        <label class="form-label">Revisão de sistemas</label>
+                        <textarea name="review_of_systems" class="form-control" rows="3" placeholder="Observações de sistemas corporais"></textarea>
+                    </div>
+                    <div class="col-12">
+                        <label class="form-label">Observações</label>
+                        <textarea name="observations" class="form-control" rows="4" placeholder="Anotações adicionais"></textarea>
+                    </div>
+                </div>
+                <div class="mt-4">
+                    <button type="submit" class="btn btn-success">Salvar Anamnese</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+<script src="/js/anamneses.js"></script>
+
+<%- include('../layouts/footer') %>

@@ -1,0 +1,57 @@
+<%- include('../layouts/header') %>
+
+<%- include('../layouts/sidebar') %>
+
+<div class="container-fluid mt-3">
+
+    <div class="content">
+
+        <div class="d-flex flex-column flex-md-row justify-content-between align-items-start gap-3 mb-4">
+            <div>
+                <h2>Dashboard</h2>
+                <p class="text-muted">Visão geral dos pacientes e atendimentos para apoiar confirmações mais rápidas.</p>
+            </div>
+        </div>
+
+        <div class="summary-grid">
+
+            <div class="summary-card">
+                <h5>Pacientes ativos</h5>
+                <p class="fs-2" id="dashboardPatients">—</p>
+            </div>
+
+            <div class="summary-card">
+                <h5>Triagens registradas</h5>
+                <p class="fs-2">—</p>
+            </div>
+
+            <div class="summary-card">
+                <h5>Consultas agendadas</h5>
+                <p class="fs-2">—</p>
+            </div>
+
+            <div class="summary-card">
+                <h5>Evoluções recentes</h5>
+                <p class="fs-2">—</p>
+            </div>
+
+        </div>
+
+        <div class="row mt-4">
+            <div class="col-lg-8">
+                <div class="card">
+                    <div class="card-body">
+                        <h5 class="section-title">Bem-estar em foco</h5>
+                        <p class="text-muted">Acompanhe os registros do prontuário e atenda com carinho. Este painel está preparado para crescer conforme o sistema avança.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+</div>
+
+<script src="/js/dashboard.js"></script>
+
+<%- include('../layouts/footer') %>

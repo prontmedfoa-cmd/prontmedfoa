@@ -1,0 +1,79 @@
+<%- include('../layouts/header') %>
+
+<%- include('../layouts/sidebar') %>
+
+<div class="container mt-4">
+    <div class="d-flex flex-column flex-md-row justify-content-between align-items-start gap-3 mb-4">
+        <div>
+            <h2>Nova Consulta</h2>
+            <p class="text-muted">Registre o atendimento médico e documente o plano de cuidado.</p>
+        </div>
+    </div>
+
+    <div class="card">
+        <div class="card-body">
+            <form id="consultationForm">
+                <div class="row g-3">
+                    <div class="col-md-6">
+                        <label class="form-label">Paciente</label>
+                        <select id="patientSelect" name="patient_id" class="form-control" required></select>
+                    </div>
+                    <div class="col-md-6">
+                        <label class="form-label">ID do Agendamento</label>
+                        <input name="appointment_id" type="number" class="form-control" placeholder="Número do agendamento" required />
+                    </div>
+                    <div class="col-md-6">
+                        <label class="form-label">Triagem relacionada</label>
+                        <select id="triageSelect" name="triage_id" class="form-control">
+                            <option value="">Nenhuma</option>
+                        </select>
+                    </div>
+                    <div class="col-md-6">
+                        <label class="form-label">Anamnese relacionada</label>
+                        <select id="anamneseSelect" name="anamnese_id" class="form-control">
+                            <option value="">Nenhuma</option>
+                        </select>
+                    </div>
+                    <div class="col-12">
+                        <label class="form-label">Diagnóstico</label>
+                        <textarea name="diagnosis" class="form-control" rows="3" placeholder="Diagnóstico"></textarea>
+                    </div>
+                    <div class="col-12">
+                        <label class="form-label">Conduta Médica</label>
+                        <textarea name="medical_conduct" class="form-control" rows="3" placeholder="Conduta médica"></textarea>
+                    </div>
+                    <div class="col-12">
+                        <label class="form-label">Exames Solicitados</label>
+                        <textarea name="requested_exams" class="form-control" rows="2" placeholder="Exames solicitados"></textarea>
+                    </div>
+                    <div class="col-12">
+                        <label class="form-label">Encaminhamento</label>
+                        <textarea name="referral" class="form-control" rows="2" placeholder="Encaminhamento"></textarea>
+                    </div>
+                    <div class="col-md-6">
+                        <label class="form-label">Atestado Médico</label>
+                        <textarea name="medical_certificate" class="form-control" rows="2" placeholder="Informações do atestado"></textarea>
+                    </div>
+                    <div class="col-md-6">
+                        <label class="form-label">Retorno em dias</label>
+                        <input name="return_in_days" type="number" class="form-control" placeholder="Dias para retorno" />
+                    </div>
+                    <div class="col-12">
+                        <label class="form-label">Observações</label>
+                        <textarea name="notes" class="form-control" rows="3" placeholder="Observações adicionais"></textarea>
+                    </div>
+                </div>
+                <input type="hidden" name="quick_flow" id="quickFlowInput" value="" />
+                <div class="mt-4 d-flex gap-2">
+                    <button type="submit" class="btn btn-success">Salvar Consulta</button>
+                    <button type="button" id="btnSaveAndPrescribe" class="btn btn-primary">Salvar e Prescrever</button>
+                    <button type="button" id="btnSaveAndEvolve" class="btn btn-outline-primary">Salvar e Evoluir</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+<script src="/js/consultations.js"></script>
+
+<%- include('../layouts/footer') %>

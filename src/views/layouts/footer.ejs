@@ -1,0 +1,14 @@
+<script src="/js/api.js"></script>
+<script>
+    const logoutButton = document.getElementById('logoutButton');
+    if (logoutButton) {
+        logoutButton.addEventListener('click', event => {
+            event.preventDefault();
+            localStorage.removeItem('token');
+            window.location = '/login';
+        });
+    }
+</script>
+
+</body>
+</html>

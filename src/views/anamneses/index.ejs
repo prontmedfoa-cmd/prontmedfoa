@@ -1,0 +1,50 @@
+<%- include('../layouts/header') %>
+
+<%- include('../layouts/sidebar') %>
+
+<div class="container-fluid mt-3">
+    <div class="d-flex flex-column flex-md-row justify-content-between align-items-start gap-3 mb-4">
+        <div>
+            <h2>Anamneses</h2>
+            <p class="text-muted">Abra o histórico clínico e registre novas anamneses para o paciente.</p>
+        </div>
+        <a href="/anamneses/new" class="btn btn-primary">Nova Anamnese</a>
+    </div>
+
+    <div class="card mb-4">
+        <div class="card-body">
+            <div class="row g-3 align-items-end">
+                <div class="col-md-6">
+                    <label class="form-label">Paciente</label>
+                    <select id="patientSelect" class="form-control"></select>
+                </div>
+                <div class="col-md-3 d-grid">
+                    <button id="btnLoadAnamneses" class="btn btn-primary">Buscar anamneses</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="card">
+        <div class="card-body">
+            <div class="table-responsive">
+                <table class="table table-striped align-middle">
+                    <thead>
+                        <tr>
+                            <th>ID</th>
+                            <th>Paciente</th>
+                            <th>Data</th>
+                            <th>Queixa Principal</th>
+                            <th>Histórico</th>
+                        </tr>
+                    </thead>
+                    <tbody id="anamnesesTable"></tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script src="/js/anamneses.js"></script>
+
+<%- include('../layouts/footer') %>

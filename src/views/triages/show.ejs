@@ -1,0 +1,26 @@
+<%- include('../layouts/header') %>
+
+<%- include('../layouts/sidebar') %>
+
+<div class="container mt-4">
+    <div class="d-flex flex-column flex-md-row justify-content-between align-items-start gap-3 mb-4">
+        <div>
+            <h2>Visualizar Triagem</h2>
+            <p class="text-muted">Veja os detalhes do atendimento inicial e atualize quando necessário.</p>
+        </div>
+        <div class="d-flex gap-2">
+            <a id="editLink" class="btn btn-secondary">Editar Triagem</a>
+            <a href="/triages" class="btn btn-outline-secondary">Voltar</a>
+        </div>
+    </div>
+
+    <div id="triageDetails" class="card">
+        <div class="card-body">
+            <div class="text-center py-4 text-muted">Carregando triagem...</div>
+        </div>
+    </div>
+</div>
+
+<script src="/js/triage-detail.js"></script>
+
+<%- include('../layouts/footer') %>

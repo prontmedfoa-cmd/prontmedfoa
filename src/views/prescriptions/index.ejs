@@ -1,0 +1,48 @@
+<%- include('../layouts/header') %>
+
+<%- include('../layouts/sidebar') %>
+
+<div class="container-fluid mt-3">
+    <div class="d-flex flex-column flex-md-row justify-content-between align-items-start gap-3 mb-4">
+        <div>
+            <h2>Prescrições</h2>
+            <p class="text-muted">Histórico de prescrições por paciente.</p>
+        </div>
+    </div>
+
+    <div class="card mb-4">
+        <div class="card-body">
+            <div class="row g-3 align-items-end">
+                <div class="col-md-6">
+                    <label class="form-label">Paciente</label>
+                    <select id="patientSelect" class="form-control"></select>
+                </div>
+                <div class="col-md-3 d-grid">
+                    <button id="btnLoadPrescriptions" class="btn btn-primary">Buscar prescrições</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="card">
+        <div class="card-body">
+            <div class="table-responsive">
+                <table class="table table-striped align-middle">
+                    <thead>
+                        <tr>
+                            <th>ID</th>
+                            <th>Consulta</th>
+                            <th>Notas</th>
+                            <th>Data</th>
+                        </tr>
+                    </thead>
+                    <tbody id="prescriptionsTable"></tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script src="/js/prescriptions.js"></script>
+
+<%- include('../layouts/footer') %>
