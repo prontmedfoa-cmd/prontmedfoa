@@ -1,0 +1,54 @@
+<%- include('../layouts/header') %>
+
+<%- include('../layouts/sidebar') %>
+
+<div class="container-fluid mt-3">
+    <div class="d-flex flex-column flex-md-row justify-content-between align-items-start gap-3 mb-4">
+        <div>
+            <h2>Gerenciar Usuários</h2>
+            <p class="text-muted">Crie, edite ou remova usuários do sistema com diferentes roles e permissões.</p>
+        </div>
+        <a href="/admin/users/new" class="btn btn-primary">Novo Usuário</a>
+    </div>
+
+    <div class="card">
+        <div class="card-body">
+            <div class="row g-3 mb-4">
+                <div class="col-md-6">
+                    <input id="searchName" class="form-control" placeholder="Nome" />
+                </div>
+                <div class="col-md-4">
+                    <select id="filterRole" class="form-control">
+                        <option value="">Todos os roles</option>
+                        <option value="ADMIN">Admin</option>
+                        <option value="MEDICO">Médico</option>
+                        <option value="ENFERMEIRO">Enfermeiro</option>
+                        <option value="TECNICO">Técnico</option>
+                        <option value="RECEPCIONISTA">Recepcionista</option>
+                    </select>
+                </div>
+                <div class="col-md-2 d-grid">
+                    <button id="btnSearch" class="btn btn-primary">Buscar</button>
+                </div>
+            </div>
+            <div class="table-responsive">
+                <table class="table table-striped align-middle">
+                    <thead>
+                        <tr>
+                            <th>ID</th>
+                            <th>Nome</th>
+                            <th>Email</th>
+                            <th>Role</th>
+                            <th>Ações</th>
+                        </tr>
+                    </thead>
+                    <tbody id="usersTable"></tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script src="/js/users.js"></script>
+
+<%- include('../layouts/footer') %>

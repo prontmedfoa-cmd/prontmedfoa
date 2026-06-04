@@ -53,6 +53,29 @@ class UserRepository {
         return rows[0] || null;
     }
 
+    async findAll() {
+
+        const query = `
+            SELECT
+                u.id,
+                u.full_name,
+                u.email,
+                u.cpf,
+                u.active,
+                r.id AS role_id,
+                r.name AS role_name
+            FROM users u
+            INNER JOIN roles r
+                ON r.id = u.role_id
+            WHERE u.active = TRUE
+            ORDER BY u.full_name
+        `;
+
+        const { rows } = await db.query(query);
+
+        return rows;
+    }
+
     async create(user) {
 
         const query = `
@@ -84,6 +107,46 @@ class UserRepository {
             );
 
         return rows[0];
+    }
+
+    async update(id, user) {
+
+        const query = `
+            UPDATE users SET
+                role_id = $1,
+                full_name = $2,
+                cpf = $3,
+                email = $4
+            WHERE id = $5
+            RETURNING id
+        `;
+
+        const values = [
+            user.role_id,
+            user.full_name,
+            user.cpf,
+            user.email,
+            id
+        ];
+
+        const { rows } =
+            await db.query(
+                query,
+                values
+            );
+
+        return rows[0];
+    }
+
+    async softDelete(id) {
+
+        const query = `
+            UPDATE users
+            SET active = FALSE
+            WHERE id = $1
+        `;
+
+        await db.query(query, [id]);
     }
 
 }

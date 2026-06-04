@@ -48,7 +48,7 @@ class AuthService {
             jwt.sign(
                 {
                     id: user.id,
-                    role: user.role_name
+                    role_name: user.role_name
                 },
                 process.env.JWT_SECRET,
                 {

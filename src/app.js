@@ -103,6 +103,11 @@ const moduleViews =
         './routes/web/moduleViews'
     );
 
+const userViews =
+    require(
+        './routes/web/userViews'
+    );
+
 app.use(
     authViews
 );
@@ -133,6 +138,10 @@ app.use(
 
 app.use(
     moduleViews
+);
+
+app.use(
+    userViews
 );
 
 /*

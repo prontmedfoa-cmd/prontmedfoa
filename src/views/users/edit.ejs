@@ -1,0 +1,55 @@
+<%- include('../layouts/header') %>
+
+<%- include('../layouts/sidebar') %>
+
+<div class="container mt-4">
+
+    <div class="d-flex flex-column flex-md-row justify-content-between align-items-start gap-3 mb-4">
+        <div>
+            <h2>Editar Usuário</h2>
+            <p class="text-muted">Atualize as informações do usuário e suas permissões.</p>
+        </div>
+    </div>
+
+    <div class="card">
+        <div class="card-body">
+            <form id="userForm">
+                <div class="row g-3">
+                    <div class="col-md-6">
+                        <label class="form-label">Nome Completo</label>
+                        <input name="full_name" class="form-control" placeholder="Nome Completo" required />
+                    </div>
+                    <div class="col-md-6">
+                        <label class="form-label">Email</label>
+                        <input name="email" type="email" class="form-control" placeholder="Email" required />
+                    </div>
+                    <div class="col-md-6">
+                        <label class="form-label">CPF</label>
+                        <input name="cpf" class="form-control" placeholder="CPF" />
+                    </div>
+                    <div class="col-md-6">
+                        <label class="form-label">Role</label>
+                        <select name="role_id" class="form-control" required>
+                            <option value="">Selecione um role</option>
+                            <option value="1">Admin</option>
+                            <option value="2">Médico</option>
+                            <option value="3">Enfermeiro</option>
+                            <option value="4">Técnico</option>
+                            <option value="5">Recepcionista</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="mt-4">
+                    <button type="submit" class="btn btn-success">Salvar Alterações</button>
+                    <a href="/admin/users" class="btn btn-outline-secondary">Cancelar</a>
+                    <button type="button" id="btnDelete" class="btn btn-danger float-end">Remover Usuário</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+</div>
+
+<script src="/js/user-edit.js"></script>
+
+<%- include('../layouts/footer') %>
